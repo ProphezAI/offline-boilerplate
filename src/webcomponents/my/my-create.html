@@ -1,0 +1,21 @@
+<script>
+  const { validateAndPost } = await import('./src/modules/SQLite.js');
+
+  const animalform = shadowDocument.querySelector('#animalform');
+  animalform.addEventListener("submit", (e) => {
+    e.preventDefault(); // prevent default submit action
+    const animal = animalform.querySelector('#animal').value;
+    validateAndPost({ "type": "post", "animal": animal });
+  })
+</script>
+
+<template>
+  <section>
+    <h2>Create an animal</h2>
+    <form action="#" id="animalform">
+      <label for="animal">Animal:</label>
+      <input type="text" id="animal" name="animal"><br><br>
+      <input type="submit" value="CREATE">
+    </form>
+  </section>
+</template>

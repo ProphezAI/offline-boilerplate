@@ -1,0 +1,54 @@
+<script>
+  shadowDocument.querySelectorAll("a.navlink").forEach(a => {
+    a.addEventListener("click", event => {
+      event.preventDefault();
+      const url = event.target.getAttribute("href");
+      go(url);
+    });
+  });
+  // Back button clicked
+  window.addEventListener("popstate", event => {
+    // TODO: fix back button
+    if (event.state) {
+      go(event.state.route, false);
+    }
+  })
+
+  window.go = function (route, addToHistory = true) {
+    if (addToHistory) {
+      history.pushState({ route }, null, route);
+    }
+    let section = null;
+    switch (route) {
+      case "/":
+        section = document.querySelector("main").children[0];
+        break;
+      case "/create":
+        section = document.createElement("my-create");
+        break;
+      case "/animals":
+        section = document.createElement("my-animals");
+        break;
+      default:
+    }
+    const main = document.querySelector("main");
+    if (main.children[0]) {
+      main.children[0].remove();
+    }
+    if (section) {
+      main.appendChild(section);
+      // move to top
+      window.scrollX = 0;
+      window.scrollY = 0;
+    }
+  }
+  // Check the initial URL
+  go(location.pathname);
+</script>
+
+<template>
+  <nav>
+    <a class="navlink" href="/create">Create</a>
+    <a class="navlink" href="/animals">Animals</a>
+  </nav>
+</template>

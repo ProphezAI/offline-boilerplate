@@ -1,0 +1,44 @@
+{
+  "name": "offline-boilerplate",
+  "version": "0.9.0",
+  "description": "A very simple framework for vanilla JavaScript offline SinglePageApplications using WebComponents, SQLite and Vite.js.",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProphezAI/offline-boilerplate.git"
+  },
+  "keywords": [
+    "vanilla",
+    "JavaScript",
+    "framework",
+    "ViteJS",
+    "SQLite",
+    "WASM",
+    "WebAssembly",
+    "WebComponents",
+    "offline",
+    "router",
+    "reactive",
+    "state"
+  ],
+  "author": "Robert Meissner <robert.meissner@outlook.com>",
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.0.2",
+    "vite": "^5.0.10"
+  },
+  "dependencies": {
+    "@sqlite.org/sqlite-wasm": "3.44.2-build1"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ProphezAI/offline-boilerplate/issues"
+  },
+  "homepage": "https://github.com/ProphezAI/offline-boilerplate#readme"
+}

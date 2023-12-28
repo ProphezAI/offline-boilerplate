@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Offline Boilerplate</title>
+  <link rel="prefetch" href="./src/webcomponents/my-animal.html" />
+  <link rel="prefetch" href="./src/webcomponents/my-animals.html" />
+  <link rel="prefetch" href="./src/webcomponents/my-controls.html" />
+  <link rel="prefetch" href="./src/webcomponents/my-create.html" />
+  <link rel="prefetch" href="./src/webcomponents/my-navigation.html" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      font: 14px Consolas, 'Courier New', monaco, monospace;
+    }
+  </style>
+  <script type="module" src="./main.js"></script>
+</head>
+
+<body>
+  <header>
+    <my-navigation></my-navigation>
+    <my-controls></my-controls>
+  </header>
+  <main>
+    <p>Click a Navigation-Link</p>
+  </main>
+</body>
+
+</html>

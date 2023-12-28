@@ -1,0 +1,22 @@
+<script>
+  if (dataStateAttribute) {
+    const state = JSON.parse(dataStateAttribute);
+    const ul = shadowDocument.querySelector("ul");
+    state.forEach((row) => {
+      let li = document.createElement("li");
+      li.innerHTML = `${row[1]}`;
+      li.dataset.state = JSON.stringify(row);
+      li.addEventListener("click", (e) => {
+        const bc = new BroadcastChannel("animal_channel");
+        bc.postMessage(JSON.parse(e.target.dataset.state));
+        bc.close();
+      })
+      ul.appendChild(li);
+    })
+  }
+</script>
+
+<template>
+  <ul>
+  </ul>
+</template>

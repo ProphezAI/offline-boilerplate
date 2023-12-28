@@ -1,0 +1,27 @@
+<script>
+  const strong = shadowDocument.querySelector("strong");
+  if (dataStateAttribute) {
+    const state = JSON.parse(dataStateAttribute);
+    strong.innerHTML = `Beware of the ${state[1]}!`;
+  }
+</script>
+
+<template>
+  <div>
+    <strong>Beware of the animal!</strong>
+  </div>
+</template>
+
+<style>
+  :host {
+    display: block;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+  div {
+    background-color: firebrick;
+    color: white;
+    padding: 5px;
+  }
+</style>

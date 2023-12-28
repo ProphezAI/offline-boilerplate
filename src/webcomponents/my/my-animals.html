@@ -1,0 +1,28 @@
+<script>
+  const { validateAndPost } = await import('./src/modules/SQLite.js');
+
+  const bc = new BroadcastChannel("result_channel");
+  bc.onmessage = (message) => {
+    const animalList = shadowDocument.querySelector("animal-list");
+    if (animalList) { // workaround to work only for the current shadowDocument
+      animalList.dataset.state = JSON.stringify(message.data);
+    }
+  };
+  const bcAnimal = new BroadcastChannel("animal_channel");
+  bcAnimal.onmessage = (message) => {
+    const animal = shadowDocument.querySelector("my-animal");
+    if (animal) { // workaround to work only for the current shadowDocument
+      animal.dataset.state = JSON.stringify(message.data);
+    }
+  };
+  // TODO BroadcastChannels should closed when the component disconnects.
+  const animals = validateAndPost({ "type": "get" });
+</script>
+
+<template>
+  <section>
+    <h2>Animals</h2>
+    <animal-list></animal-list>
+    <my-animal></my-animal>
+  </section>
+</template>

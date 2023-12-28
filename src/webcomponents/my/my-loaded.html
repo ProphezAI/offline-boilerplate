@@ -1,0 +1,27 @@
+<script>
+  import { log } from '@/Logger';
+  log("Test");
+  const state = JSON.parse(dataStateAttribute);
+  querySelector("span").innerHTML = state.count;
+
+  addEventListener("div","click",() => {
+    state.count++;
+    updateState(state);
+  })
+</script>
+
+<template>
+  <div>
+    <p>Test from APP template</p>
+    <span></span>
+    <my-strong id="myStrong" data-state='{"name": "Milana"}'></my-strong>
+  </div>
+</template>
+
+<style>
+  :host {
+    display: block;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+</style>
